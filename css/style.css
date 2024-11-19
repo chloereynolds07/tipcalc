@@ -1,0 +1,23 @@
+* {box-sizing: border-box;}
+
+:root {
+    --primbg: #ffb6c1;
+    --accentcolor: #ff5c5c;
+    --secbg: #fff5f5;
+    --textcontrast: #3b3b3b;
+    --highlights: #ffd700;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+.main {
+    padding: 40px 0;
+}
+
+.section { 
+    padding: 60px 0;
+}
