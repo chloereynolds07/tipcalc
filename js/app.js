@@ -133,7 +133,7 @@ const menuItems = [
         type: "drinks",
         item: "cola",
         desc: "cola",
-        imgUrl: '',
+        imgUrl: 'cola.jpeg',
         price: 1.00,
         qty: 0
     },
@@ -142,34 +142,34 @@ const menuItems = [
         type: "drinks",
         item: "melon soda",
         desc: "melon soda",
-        imgUrl: '',
+        imgUrl: 'melonsoda.jpeg',
         price: 1.00,
         qty: 0
     },
     {
         id: 15,
         type: "drinks",
-        item: "sweet tea",
-        desc: "sweet tea",
-        imgUrl: '',
+        item: "green tea",
+        desc: "green tea",
+        imgUrl: 'greentea.jpeg',
         price: 1.00,
         qty: 0
     },
     {
         id: 16,
         type: "drinks",
-        item: "sweet tea",
+        item: "sake",
         desc: "sake",
-        imgUrl: '',
+        imgUrl: 'sake.jpeg',
         price: 1.99,
         qty: 0
     },
     {
         id: 17,
         type: "sides",
-        item: "tamagokyaki",
+        item: "tamagoyaki",
         desc: "rolled omeletted",
-        imgUrl: '',
+        imgUrl: 'tamagoyaki.jpeg',
         price: 2.99,
         qty: 0
     },
@@ -178,7 +178,7 @@ const menuItems = [
         type: "sides",
         item: "broccoli",
         desc: "blanched with sesame oil",
-        imgUrl: '',
+        imgUrl: 'broccoli.jpeg',
         price: 1.25,
         qty: 0
     },
@@ -187,7 +187,7 @@ const menuItems = [
         type: "sides",
         item: "rice",
         desc: "bowl of rice",
-        imgUrl: '',
+        imgUrl: 'rice.jpeg',
         price: 1.00,
         qty: 0
     },
@@ -196,7 +196,7 @@ const menuItems = [
         type: "sides",
         item: "kani salad",
         desc: "cooling cucumber, sweet corn, imitation crab, and lettuce in a creamy japanese mayo",
-        imgUrl: '',
+        imgUrl: 'kani.jpeg',
         price: 3.99,
         qty: 0
     }
@@ -205,8 +205,32 @@ const menuItems = [
 //confirm button
 confirmBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log('click');
+    // console.log('click');
+    getTotal()
 })
+
+// getTotal()
+const getTotal =()=> {
+
+    const subTotal = parseFloat(cartSubtotal.innerText)
+    const tipAmt= parseFloat(document.getElementById('tipAmt').value)
+    const otherAmt = parseFloat(document.getElementById('otherAmt').value)
+    const yourTip = document.getElementById('yourTip')
+    const theSubtotal = document.getElementById('theSubtotal')
+    const taxDisplay = document.getElementById('tax')
+
+    let taxTotal = subtotal * tax
+
+    let receiptTip = isNaN(tipAmt) ? otherAmt : (subtotal * tipAmt)
+
+    let total = isNaN(tipAmt) ? subtotal + otherAmt + taxTotal : 
+    receiptTip + subtotal + taxTotal
+
+    theSubtotal.innerText = subtotal
+    taxDisplay = taxTotal.toFixed(2)
+    yourTip.innerText = receipt.toFixed(2)
+    totalDisplay.innerText = total.toFixed(2)
+}
 
 //load the menu items
 menuDiv.forEach(div => {
@@ -227,7 +251,7 @@ for (let i = 0; i < menuTypes.length; i++) {
 }
 
 //grab the appRow
-const appRow = document.getElementById('appetizerDiv');
+const appRow = document.getElementById('appetizersRow');
 const entreesRow = document.getElementById('entreesRow');
 const drinksRow = document.getElementById('drinksRow');
 const dessertsRow = document.getElementById('dessertsRow');
@@ -251,11 +275,11 @@ menuItems.forEach(item => {
         <footer class="card-footer">
         <p class="card-text item-price">$${item.price}</p>
         <div class="buttons-div d-flex justify-content-around">
-            <button class="btn btn-danger cart-btn text capitalize" id="Btn${item.id}" data-id="${item.id}" data-price="${item.price}" data-qty="${item.qty}" data-item="${item.item}">add to cart</button>
+            <button class="btn btn-success cart-btn text capitalize" id="Btn${item.id}" data-id="${item.id}" data-price="${item.price}" data-qty="${item.qty}" data-item="${item.item}">add to cart</button>
             <div class="qty-div">
-                <button class="btn btn-primary btn-subtract" id="btnSubtract${item.id}" data-id="${item.id}" data-qty="${item.qty}"> - </button>
+                <button class="btn btn-dark btn-subtract" id="btnSubtract${item.id}" data-id="${item.id}" data-qty="${item.qty}"> - </button>
                 <span class="quanity" id="quanity${item.id}">${item.qty}</span>
-                <button class="btn btn-primary btn-add" id="btnAdd${item.id}" data-id="${item.id}" data-qty="${item.qty}"> + </button>
+                <button class="btn btn-dark btn-add" id="btnAdd${item.id}" data-id="${item.id}" data-qty="${item.qty}"> + </button>
             </div>
         </div>
         </footer>
@@ -301,7 +325,12 @@ cartButtons.forEach(button => {
         for (let i = 0; i < menuItems.length; i++) {
             menuItems[i].id === id ? qty = menuItems[i].qty : null
         }
-        addItems(price, qty, item, id)
+
+        // console.log(button.getAttribute('data-qty'))
+
+        if (button.getAttribute('data-qty') > 0) {
+            addItems(price, qty, item, id)
+        }
     })
 })
 
@@ -347,7 +376,7 @@ const makeReceipt =(obj, el)=> {
     const itemSubtotal = document.createElement('td')
     itemSubtotal.classList.add('item-subtotal', 'text-center')
     itemSubtotal.setAttribute('id', `subTotal${obj.id}`)
-    itemSubtotal.innerText = obj.itemTotal
+    itemSubtotal.innerText = obj.itemTotal.toFixed(2)
 
     tableRow.appendChild(receiptChoice)
     tableRow.appendChild(receiptQty)
@@ -391,5 +420,3 @@ btnAdd.forEach(button => {
         }
     })
 })
-
-test

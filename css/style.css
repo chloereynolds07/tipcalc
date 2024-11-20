@@ -28,9 +28,9 @@ body {
 
 .header {
     padding: 10px 0;
-    background-color: var(--textcontrast);
+    background-color: var(--highlights);
     border-bottom: 5px solid var(--secbg);
-    color: var(--highlights)
+    color: var(--textcontrast)
 }
 
 .menu-div {
@@ -43,8 +43,9 @@ body {
 }
 
 .subtotal-div, .ticket-div {
-    padding: 15px;
-    background-color: var(--accentcolor);
+    padding: 20px;
+    background-color: var(--textcontrast);
+    color: var(--highlights);
 }
 
 #receiptTable {

@@ -21,9 +21,7 @@
         <section class="section menu-section" id="menuSection">
             <div class="container">
                 <h2 class="menu-heading text-capitalize">our menu</h2>
-                <div class="menu-div" id="appetizerDiv">
-                    <!-- h3+div.row -->
-                </div>
+                <div class="menu-div" id="appetizerDiv"></div>
                 <div class="menu-div" id="entreeDiv"></div>
                 <div class="menu-div" id="drinkDiv"></div>
                 <div class="menu-div" id="dessertDiv"></div>
@@ -56,30 +54,32 @@
                         <div class="ticket-div">
                             <h2 class="text-capitalize text-center">your receipt:</h2>
                             <div class="col-9">
-                                <table class="receipts" id="receiptTable">
-                                    <tbody id="receipt">
-                                        <tr>
-                                            <td class="table-headers text-capitalize text-center">item</td>
-                                            <td class="table-headers text-capitalize text-center">quanity</td>
-                                            <td class="table-headers text-capitalize text-center">price</td>
-                                            <td class="table-headers text-capitalize text-center">item total</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="col-3">
-                                <p class="text-end">Subtotal: $
-                                    <span id="theSubtotal">0.00</span>
-                                </p>
-                                <p class="text-end">Tax: $
-                                    <span id="tax">0.00</span>
-                                </p>
-                                <p class="text-end tip-total" id="tipTotal">Tip: $
-                                    <span id="yourTip">0.00</span>
-                                </p>
-                                <p class="text-end total-text">Total Bill: $ 
-                                    <span id="total">0.00</span>
-                                </p>
+                                <div class="row">
+                                    <table class="receipts" id="receiptTable">
+                                        <tbody id="receipt">
+                                            <tr>
+                                                <td class="table-headers text-capitalize text-center">item</td>
+                                                <td class="table-headers text-capitalize text-center">quanity</td>
+                                                <td class="table-headers text-capitalize text-center">price</td>
+                                                <td class="table-headers text-capitalize text-center">item total</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="col-3">
+                                        <p class="text-end">Subtotal: $
+                                            <span id="theSubtotal">0.00</span>
+                                        </p>
+                                        <p class="text-end">Tax: $
+                                            <span id="tax">0.00</span>
+                                        </p>
+                                        <p class="text-end tip-total" id="tipTotal">Tip: $
+                                            <span id="yourTip">0.00</span>
+                                        </p>
+                                        <p class="text-end total-text">Total Bill: $ 
+                                            <span id="total">0.00</span>
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
