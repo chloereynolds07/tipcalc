@@ -1,17 +1,17 @@
 * {box-sizing: border-box;}
 
 :root {
-    --primbg: #ffb6c1;
-    --accentcolor: #ff5c5c;
-    --secbg: #fff5f5;
-    --textcontrast: #3b3b3b;
-    --highlights: #ffd700;
+    --primbg: #E0E2DB;
+    --accentcolor: #8B2635;
+    --secbg: #D2D4C8;
+    --textcontrast: #2E3532;
+    --highlights: #D3EFBD;
 }
 
 body {
     margin: 0;
     padding: 0;
-    background-color: #fff;
+    background-color: var(--primbg);
 }
 
 .main {
@@ -20,4 +20,39 @@ body {
 
 .section { 
     padding: 60px 0;
+}
+
+.footer {
+    padding: 10px;
+}
+
+.header {
+    padding: 10px 0;
+    background-color: var(--textcontrast);
+    border-bottom: 5px solid var(--secbg);
+    color: var(--highlights)
+}
+
+.menu-div {
+    padding: 40px 0;
+}
+
+.item-desc {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.subtotal-div, .ticket-div {
+    padding: 15px;
+    background-color: var(--accentcolor);
+}
+
+#receiptTable {
+    padding: 10px 0;
+    width: 100%;
+}
+
+#confirmBtn {
+    color: var(--highlights);
+    background-color: var(--textcontrast);
 }
