@@ -54,6 +54,6 @@ body {
 }
 
 #confirmBtn {
-    color: var(--highlights);
-    background-color: var(--textcontrast);
+    color: var(--textcontrast);
+    background-color: var(--highlights);
 }

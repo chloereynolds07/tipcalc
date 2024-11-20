@@ -228,7 +228,7 @@ const getTotal =()=> {
 
     theSubtotal.innerText = subtotal
     taxDisplay = taxTotal.toFixed(2)
-    yourTip.innerText = receipt.toFixed(2)
+    yourTip.innerText = receiptTip.toFixed(2)
     totalDisplay.innerText = total.toFixed(2)
 }
 
